@@ -50,14 +50,14 @@ function App() {
         />
 
         <Stack.Screen
-          name="Trang Đăng Ký"
+          name="Registration"
           component={Registration}
           options={{
-            header: () => <Header name="Đăng ký" />,
-            headerStyle: {
+            headerTitle: () => <Header name="Trang đăng ký" />,
+            headerTitle: {
               height: 200,
               borderBottomLeftRadius: 50,
-              borderBottomRightRadius: 50,
+              borderBottomRightRadiusBottom: 50,
               backgroundColor: "#fff",
               shadowColor: "#000",
               elevation: 25,
