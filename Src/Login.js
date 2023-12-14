@@ -13,6 +13,8 @@ import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { firebase } from "../config";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { Logo } from '../FirebaseAuth/components';
+import { Images, Colors} from '../FirebaseAuth/config';
 
 
 
@@ -29,32 +31,13 @@ export default function Login() {
     }
   };
 
-  const forgotPassword = async () => {
-    // try {
-    //   const user = firebase.auth().currentUser;
-
-    //   if (user) {
-    //     await firebase.auth().sendPasswordResetEmail(user.email);
-    //     alert("Thay đổi mật khẩu đã được gửi đến email của bạn");
-    //   } else {
-    //     alert("Không có người dùng hiện tại");
-    //   }
-    // } catch (error) {
-    //   alert(error.message);
-    // }
-    firebase.auth().sendPasswordResetEmail(firebase.auth().currentUser.email)
-  .then(()=>{
-    alert("Thay đổi mật khẩu")
-  }).catch((error)=>{
-    alert(error)
-  })
-
-
-  };
 
   return (
     <View style={styles.container}>
-      <Text style={{ fontWeight: "bold", fontSize: 26 }}>Đăng nhập</Text>
+      <View style={styles.logoContainer}>
+        <Logo uri={Images.logo} />
+        <Text style={styles.screenTitle}>Create a new account!</Text>
+      </View>
       <View style={{ marginTop: 40 }}>
         <TextInput
           style={styles.textInput}
@@ -65,9 +48,10 @@ export default function Login() {
           autoCorrect={false}
         />
         <TextInput
-          style={styles.textInput}
+          style={styles.textInput}         
           placeholder="Nhập Mật khẩu"
           onChangeText={(password) => setPassword(password)}
+          
           autoCapitalize="none"
           autoCorrect={false}
           secureTextEntry={true}
@@ -93,7 +77,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: "center",
-    marginTop: 10,
+    marginTop: 2,
   },
   textInput: {
     paddingTop: 20,
@@ -114,4 +98,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
     borderRadius: 10,
   },
+  screenTitle: {
+    fontSize: 32,
+    fontWeight: '700',
+    color: Colors.black,
+    paddingTop: 20
+  },
+  logoContainer: {
+    alignItems: 'center'
+  },  
 });

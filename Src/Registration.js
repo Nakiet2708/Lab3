@@ -46,9 +46,6 @@ const Registration = () => {
   };
   return (
     <View>
-      <Text style={{ fontWeight: "bold", fontSize: 23 }}>
-        Đăng ký
-      </Text>
       <TextInput
         style={styles.textInput}
         placeholder="firstName"
